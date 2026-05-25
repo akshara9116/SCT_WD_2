@@ -1,0 +1,150 @@
+/* Reset default browser styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Page background — dark gradient, centered content */
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  color: #f1f5f9;
+  padding: 1rem;
+}
+
+/* Rounded card container with shadow */
+.card {
+  background: rgba(30, 41, 59, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 460px;
+  text-align: center;
+}
+
+/* Title styling */
+h1 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+}
+
+/* Large stopwatch display */
+.display {
+  font-size: clamp(2.8rem, 10vw, 4.5rem);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+}
+
+/* Button grid layout */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Base button styling */
+.btn {
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+/* Hover & active effects */
+.btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+.btn:active { transform: translateY(0); }
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  filter: none;
+  box-shadow: none;
+}
+
+/* Colorful button variants */
+.start { background: linear-gradient(135deg, #22c55e, #16a34a); }
+.pause { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.reset { background: linear-gradient(135deg, #ef4444, #dc2626); }
+.lap   { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+
+/* Lap section */
+.laps-title {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #94a3b8;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  font-weight: 500;
+}
+
+.laps {
+  list-style: none;
+  max-height: 200px;
+  overflow-y: auto;
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 12px;
+  padding: 0.5rem;
+}
+
+/* Placeholder when no laps */
+.laps:empty::after {
+  content: 'No laps yet';
+  display: block;
+  color: #64748b;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Single lap row */
+.lap-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.65rem 0.9rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.95rem;
+}
+.lap-item:last-child { border-bottom: none; }
+.lap-item .label { color: #94a3b8; }
+
+/* Custom scrollbar for lap list */
+.laps::-webkit-scrollbar { width: 6px; }
+.laps::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 3px;
+}
+
+/* Responsive tweaks for small screens */
+@media (max-width: 380px) {
+  .card { padding: 1.75rem 1.25rem; }
+  .buttons { grid-template-columns: 1fr 1fr; }
+}

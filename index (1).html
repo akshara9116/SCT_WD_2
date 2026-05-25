@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stopwatch</title>
+  <!-- Link external stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Stopwatch card container -->
+  <div class="card">
+    <h1>Stopwatch</h1>
+
+    <!-- Time display in HH:MM:SS format -->
+    <div class="display" id="display">00:00:00</div>
+
+    <!-- Control buttons -->
+    <div class="buttons">
+      <button class="btn start" id="startBtn">Start</button>
+      <button class="btn pause" id="pauseBtn" disabled>Pause</button>
+      <button class="btn lap"   id="lapBtn"   disabled>Lap</button>
+      <button class="btn reset" id="resetBtn">Reset</button>
+    </div>
+
+    <!-- Lap times list -->
+    <h2 class="laps-title">Lap Times</h2>
+    <ul class="laps" id="laps"></ul>
+  </div>
+
+  <!-- Link external script -->
+  <script src="script.js"></script>
+</body>
+</html>
